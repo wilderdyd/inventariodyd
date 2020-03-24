@@ -1,0 +1,33 @@
+body{
+    background-color: white;
+}
+header{
+    text-align: right;
+    background-color: lightseagreen;
+    padding-top: 20px;
+    padding-bottom: 1px;
+}
+
+nav li{
+    list-style-type: none;
+    display: inline;
+    margin-left: 4px;
+}
+
+nav button{
+    margin-left: 10px;
+}
+
+li>a{
+    color: white;
+}
+
+nav p{
+    display: inline;
+    color: blueviolet;
+    padding-right: 10px;
+}
+
+.vl{
+    display: inline;
+}

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/login.css">
+</head>
+
+<body>
+    <section>
+        <h1>INVENTARIO</h1>
+        <input id="inName" type="text" class="form-control" placeholder="Nombre de usuario" hidden>
+        <br>
+        <input id="inEmail" type="text" class="form-control" placeholder="Correo">
+        <br>
+        <input id="inPassword" type="password" class="form-control" placeholder="Contraseña">
+        <br>
+        <button id="btnLogin" class="btn btn-primary btn-lg btn-block">Ingresar</button>
+        <div>
+            <button id="btnCreate" class="btn  btn-primary btn-lg btn-block " hidden>Crear Usuario</button>
+            <p id = "pCreate" onclick="createUserState()">Crear usuario</p>
+        </div>
+    </section>
+
+    <!-- SDK firebase -->
+    <script src="/__/firebase/6.2.0/firebase-app.js"></script>
+    <script src="/__/firebase/6.2.0/firebase-auth.js"></script>
+    <script src="/__/firebase/6.2.0/firebase-firestore.js"></script>
+    <script src="/__/firebase/init.js"></script>
+
+    <script src="js/auth.js"></script>
+    <script src = "js/authController.js"></script>
+</body>
+
+</html>
