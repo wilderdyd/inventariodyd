@@ -1,5 +1,6 @@
 function createUserState() {
     document.getElementById("pCreate").hidden = true;
+    document.getElementById("pMessage").hidden = false;
     btnLogin.hidden = true;
     btnCreate.hidden = false;
     inName.hidden = false;
@@ -10,6 +11,7 @@ function loginUserState() {
     btnLogin.hidden = false;
     btnCreate.hidden = true;
     inName.hidden = true;
+    document.getElementById("pMessage").hidden = true;
     inName.value = "";
     inPassword.value = "";
 }

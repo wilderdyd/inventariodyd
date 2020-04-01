@@ -1,33 +1,57 @@
-body{
+body {
     background-color: white;
 }
-header{
-    text-align: right;
-    background-color: lightseagreen;
-    padding-top: 20px;
-    padding-bottom: 1px;
-}
 
-nav li{
+nav li {
     list-style-type: none;
     display: inline;
-    margin-left: 4px;
+    color: white;
+}
+nav p{
+    float: right;
+    padding-right: 5px;
 }
 
-nav button{
-    margin-left: 10px;
+#pName {
+    color: blueviolet;
+    display: inline;
 }
 
-li>a{
+li>a {
     color: white;
 }
 
-nav p{
-    display: inline;
-    color: blueviolet;
-    padding-right: 10px;
+.artProduct {
+    border-radius: 10%;
+    border-color: gainsboro;
+    border-style: solid;
+    margin: 0 auto;
+    display: flex;
+    margin-left: 15%;
+    margin-right: 15%;
+    text-align: center;
+    margin-bottom: 5px;
 }
 
-.vl{
-    display: inline;
+.artProduct div {
+    flex: 1;
 }
+
+.figImg {
+    /* border-color: red;
+    border-style: solid; */
+    max-width: 150px;
+    max-height: 150px;
+}
+
+#imgProduct {
+    width: 150px;
+    height: 150px;
+}
+
+.divName {
+    
+}
+/* 
+.divPrice {
+}  */
