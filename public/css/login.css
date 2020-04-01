@@ -8,7 +8,11 @@ section{
     border-color: darkgray;
     border-radius: 20px;
 }
-p{
+#pCreate{
     text-decoration: underline blue;
+}
+
+#pMessage{
+    color: red;
 }
 

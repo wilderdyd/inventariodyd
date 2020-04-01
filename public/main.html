@@ -5,37 +5,74 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inventario</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.1/css/materialize.min.css">
     <link rel="stylesheet" href="css/main.css">
+
 </head>
 
 <body>
-    <header>
-        <nav>
-            <ul>
-                <li><a href="#">Productos disponibles</a></li>
-                <li><a href="#">Productos sin stock</a></li>
-                <li><a href="#">Añadir producto</a></li>
-                <li><a href="#">Eliminar producto</a></li>
-                <li><a href="#">Modificar producto</a></li>
-                <button id="btnLogout" class="btn btn-primary">SALIR</button>
-                <div class="vl"></div> 
-                <p id="pName"></p>
-            </ul>
-
-
-        </nav>
-
-    </header>
-
-    <h1>Inventario</h1>
-
+    <div id="divGlobal" hidden>
+        <header>
+            <nav>
+                <ul class="ulHeader">
+                    <li><a id="liAdd">Añadir producto</a></li>
+                    <!-- <li><a id="liDelete">Eliminar producto</a></li> -->
+                    <!-- <li><a id="liModified">Modificar producto</a></li> -->
+                    <li><a id="liInStock">Productos disponibles</a></li>
+                    <li><a id="liOutStock">Productos sin stock</a></li>
+                    <button id="btnLogout" class="btn btn-primary">SALIR</button>
+                    <p id="pName"></p>
+                </ul>
+            </nav>
+        </header>
+        <h4 id="titulo">Seleccione una opción del menú</h4>
+        <section class="stock" id="stock">
+        </section>
+        <div id="modalAdd" class="modal modalAdd">
+            <div class="modal-content">
+                <div class="col s12 m6">
+                    <h4>Añade un producto</h4>
+                    <div>
+                        <label for="inName">Nombre del producto:</label>
+                        <input id="inName" type="text" maxlength="30" data-length="30" required>
+                    </div>
+                    <div>
+                        <label for="inDescription">Descripción del producto:</label>
+                        <input id="inDescription" type="text" maxlength="200" data-length="200" required>
+                    </div>
+                    <div>
+                        <label for="inPrice">Precio del producto:</label>
+                        <input id="inPrice" type="number" maxlength="12" data-length="12" required>
+                    </div>
+                    <div>
+                        <label for="inAmount">Cantidad del producto:</label>
+                        <input id="inAmount" type="number" maxlength="30" data-length="30" required>
+                    </div>
+                    <div class="progress-panel">
+                        <label for="inImage">Imagen del producto:</label>
+                        <input type="file" accept="image/*" value="upload" id="inImage" required>
+                        <hr>
+                        <!-- <div class="progress">
+                            <div class="determinate" style="width: 0%;"></div>
+                        </div> -->
+                    </div>
+                    <div class="divBtnAdd">
+                        <button class="btn btn-primary" id="btnAdd">Añadir</button>
+                        <button class="btn btn-error" id="btnCancelar">Cancelar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <script src="/__/firebase/6.2.0/firebase-app.js"></script>
     <script src="/__/firebase/6.2.0/firebase-auth.js"></script>
     <script src="/__/firebase/6.2.0/firebase-firestore.js"></script>
+    <script src="/__/firebase/6.2.0/firebase-storage.js"></script>
     <script src="/__/firebase/init.js"></script>
-
+    <script src="js/stock.js"></script>
     <script src="js/main.js"></script>
 </body>
 
