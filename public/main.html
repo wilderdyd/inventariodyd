@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,6 +12,7 @@
     <link rel="stylesheet" href="css/main.css">
 
 </head>
+
 <body>
     <div id="divGlobal" hidden>
         <header>
@@ -30,8 +32,10 @@
         <section class="stock" id="stock"> </section>
         <div id="modalAdd" class="modal modalAdd">
             <div class="modal-content">
-                <div class="col s12 m6">
+                <div class="row">
                     <h4>Añade un producto</h4>
+                </div>
+                <div class="col s12 m6">
                     <div>
                         <label for="inName">Nombre del producto:</label>
                         <input id="inName" type="text" maxlength="30" data-length="30" required>
@@ -53,6 +57,8 @@
                         <input type="file" accept="image/*" value="upload" id="inImage" required>
                         <hr>
                     </div>
+                </div>
+                <div class="row">
                     <div class="divBtnAdd">
                         <button class="btn btn-primary" id="btnAdd">Añadir</button>
                         <button class="btn btn-error" id="btnCancelar">Cancelar</button>
@@ -64,25 +70,25 @@
             <div class="modal-content">
                 <div class="row">
                     <h4>Modificar el producto</h4>
-                    <div class="col s12 m6">
-                        <div>
-                            <label for="inNameMod">Nombre del producto:</label>
-                            <input id="inNameMod" type="text" maxlength="30" data-length="30" required>
-                        </div>
-                        <div>
-                            <label for="inDescriptionMod">Descripción del producto:</label>
-                            <input id="inDescriptionMod" type="text" maxlength="200" data-length="200" required>
-                        </div>
+                </div>
+                <div class="col s8">
+                    <div>
+                        <label for="inNameMod">Nombre del producto:</label>
+                        <input id="inNameMod" type="text" maxlength="30" data-length="30" required>
                     </div>
-                    <div class="col s12 m6">
-                        <div>
-                            <label for="inPriceMod">Precio del producto:</label>
-                            <input id="inPriceMod" type="number" maxlength="12" data-length="12" required>
-                        </div>
-                        <div>
-                            <label for="inAmountMod">Cantidad del producto:</label>
-                            <input id="inAmountMod" type="number" maxlength="30" data-length="30" required>
-                        </div>
+                    <div>
+                        <label for="inDescriptionMod">Descripción del producto:</label>
+                        <input id="inDescriptionMod" type="text" maxlength="200" data-length="200" required>
+                    </div>
+                </div>
+                <div class="col s8">
+                    <div>
+                        <label for="inPriceMod">Precio del producto:</label>
+                        <input id="inPriceMod" type="number" maxlength="12" data-length="12" required>
+                    </div>
+                    <div>
+                        <label for="inAmountMod">Cantidad del producto:</label>
+                        <input id="inAmountMod" type="number" maxlength="30" data-length="30" required>
                     </div>
                 </div>
                 <div class="row">
@@ -91,7 +97,6 @@
                         <button class="btn btn-error" id="btnCancelMod">Cancelar</button>
                     </div>
                 </div>
-
             </div>
         </div>
     </div>
@@ -103,4 +108,5 @@
     <script src="js/stock.js"></script>
     <script src="js/main.js"></script>
 </body>
+
 </html>

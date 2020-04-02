@@ -10,6 +10,7 @@ const admin = require('firebase-admin');
 // });
 admin.initializeApp();
 const APP_NAME = 'Inventario D&D';
+
 const gmailEmail = functions.config().gmail.email;
 const gmailPassword = functions.config().gmail.password;
 const mailTransport = nodemailer.createTransport({
