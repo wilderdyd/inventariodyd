@@ -24,19 +24,33 @@ class Stock {
     }
 
     addProduct(uid, emailUser, name, description, price, amount, imgProduct) {
-        return this.db.collection('stock').add({
-            uid: uid,
-            user: emailUser,
-            name: name,
-            description: description,
-            price: price,
-            amount: amount,
-            imgProduct: imgProduct,
-            fecha: firebase.firestore.FieldValue.serverTimestamp()
-        })
+        return this.db.collection('stock')
+            .add({
+                uid: uid,
+                user: emailUser,
+                name: name,
+                description: description,
+                price: price,
+                amount: amount,
+                imgProduct: imgProduct,
+                fecha: firebase.firestore.FieldValue.serverTimestamp()
+            })
             .catch(err => {
                 console.error(`Error created product => ${err}`);
             });
+    }
+
+    modifiedProduct(idP, nameP, descP, priceP, amountP) {        
+        return this.db.collection('stock').doc(idP)
+            .update({
+                name: nameP,
+                description: descP,
+                price: priceP,
+                amount: amountP
+            })
+            .catch(err => {
+                console.error(`Error updating product => ${err}  => ` + idP);
+            })
     }
 
     productInStock(emailUser) {
@@ -52,6 +66,7 @@ class Stock {
                 if (!querySnapshot.empty) {
                     querySnapshot.forEach(product => {
                         let stockHtml = this.templateProduct(
+                            product.id,
                             product.data().imgProduct,
                             product.data().name,
                             product.data().description,
@@ -74,6 +89,7 @@ class Stock {
                 if (!querySnapshot.empty) {
                     querySnapshot.forEach(product => {
                         let stockHtml = this.templateProduct(
+                            product.id,
                             product.data().imgProduct,
                             product.data().name,
                             product.data().description,
@@ -86,39 +102,49 @@ class Stock {
             });
     }
 
-    templateProduct(imageLink, name, description, price, amount) {
+    templateProduct(id, imageLink, name, description, price, amount) {
         if (imageLink) {
-            return `<article class="artProduct">
-            <div class="divImg">
-                <figure class="figImg">
-                    <img id="imgProduct" src=${imageLink} alt="ImgProduct">
-                </figure>
+            return `
+            <div class="divProduct">
+                <article class="artProduct">
+                    <div class="mod divImg">
+                        <figure class="mod figImg">
+                            <img id="imgProduct" class="mod" src=${imageLink} alt="ImgProduct">
+                        </figure>
+                    </div>
+                    <div class="mod divName">
+                        <h3 id="n${id}" class="mod">${name}</h3>
+                        <h5 id="d${id}" class="mod">${description}</h5>
+                    </div>
+                    <div class="mod divPrice">
+                        <h3><strong id="p${id}" class="mod">${price}</strong></h3>
+                        <h6 id="a${id}" class="mod">${amount}</h6>
+                    </div>
+                    </article>
+                    <div class="divWrapper" id=${id}></div>
             </div>
-            <div class="divName">
-                <h3 id="hName">${name}</h3>
-                <h5 id="hDescription">${description}</h5>
-            </div>
-            <div class="divPrice">
-                <h3 id="hPrice"><strong>${price}</strong></h3>
-                <h6 id="hAmount">${amount}</h6>
-            </div>
-        </article>`
+        `
         } else {
-            return `<article class="artProduct">
-            <div class="divImg">
-                <figure class="figImg">
-                    <img id="imgProduct" src='images/product.jpg' alt="ImgProduct">
-                </figure>
+            return `
+            <div class="divProduct">
+                <article class="artProduct">
+                    <div class="mod divImg">
+                        <figure class="mod figImg">
+                            <img id="imgProduct" class="mod" src='images/product.jpg' alt="ImgProduct">
+                        </figure>   
+                    </div>
+                    <div class="mod divName">
+                        <h3 id="n${id}" class="mod">${name}</h3>
+                        <h5 id="d${id}" class="mod">${description}</h5>
+                    </div>
+                    <div class="mod divPrice">
+                        <h3><strong id="p${id}" class="mod">${price}</strong></h3>
+                        <h6 id="a${id}" class="mod">${amount}</h6>
+                    </div>
+                </article>
+                <div class="divWrapper" id=${id}></div>
             </div>
-            <div class="divName">
-                <h3 id="hName">${name}</h3>
-                <h5 id="hDescription">${description}</h5>
-            </div>
-            <div class="divPrice">
-                <h3 id="hPrice"><strong>${price}</strong></h3>
-                <h6 id="hAmount">${amount}</h6>
-            </div>
-        </article>`
+            `
         }
     }
 }

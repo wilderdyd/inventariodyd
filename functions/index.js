@@ -9,21 +9,21 @@ const admin = require('firebase-admin');
 //  response.send("Hello from Firebase!");
 // });
 admin.initializeApp();
+const APP_NAME = 'Inventario D&D';
 const gmailEmail = functions.config().gmail.email;
 const gmailPassword = functions.config().gmail.password;
-const APP_NAME = 'Inventario D&D';
 const mailTransport = nodemailer.createTransport({
     service: 'gmail',
     auth: {
         user: gmailEmail,
         pass: gmailPassword
-    },
-});
+     },
+}); 
 
+    
 exports.sendWelcomeEmail = functions.auth.user().onCreate((user) => {
     const email = user.email;
     const displayName = user.displayName;
-    console.log('Se va enviar mensaje bienvenida enviado a :', email);
     return sendWelcomeEmail(email, displayName);
 });
 
