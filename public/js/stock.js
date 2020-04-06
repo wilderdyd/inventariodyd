@@ -40,17 +40,20 @@ class Stock {
             });
     }
 
-    modifiedProduct(idP, nameP, descP, priceP, amountP) {        
-        return this.db.collection('stock').doc(idP)
-            .update({
-                name: nameP,
-                description: descP,
-                price: priceP,
-                amount: amountP
-            })
-            .catch(err => {
-                console.error(`Error updating product => ${err}  => ` + idP);
-            })
+    modifiedProduct(idP, nameP, descP, priceP, amountP) { 
+        const data = {
+            idP: idP,
+            nameP: nameP,
+            descP: descP,
+            priceP: priceP,
+            amountP: amountP,
+        };    
+
+        var modifiedStock = firebase.functions().httpsCallable('modifiedStock');
+        return modifiedStock(data)
+        .catch(err => {
+            console.log(`${err.code} => ${err.message}`);
+        });
     }
 
     productInStock(emailUser) {

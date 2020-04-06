@@ -20,7 +20,6 @@
                 <ul class="ulHeader">
                     <li><a id="liAdd">Añadir producto</a></li>
                     <!-- <li><a id="liDelete">Eliminar producto</a></li> -->
-                    <!-- <li><a id="liModified">Modificar producto</a></li> -->
                     <li><a id="liInStock">Productos disponibles</a></li>
                     <li><a id="liOutStock">Productos sin stock</a></li>
                     <button id="btnLogout" class="btn btn-primary">SALIR</button>
@@ -35,7 +34,7 @@
                 <div class="row">
                     <h4>Añade un producto</h4>
                 </div>
-                <div class="col s12 m6">
+                <div class="col">
                     <div>
                         <label for="inName">Nombre del producto:</label>
                         <input id="inName" type="text" maxlength="30" data-length="30" required>
@@ -71,7 +70,7 @@
                 <div class="row">
                     <h4>Modificar el producto</h4>
                 </div>
-                <div class="col s8">
+                <div class="col">
                     <div>
                         <label for="inNameMod">Nombre del producto:</label>
                         <input id="inNameMod" type="text" maxlength="30" data-length="30" required>
@@ -81,7 +80,7 @@
                         <input id="inDescriptionMod" type="text" maxlength="200" data-length="200" required>
                     </div>
                 </div>
-                <div class="col s8">
+                <div class="col">
                     <div>
                         <label for="inPriceMod">Precio del producto:</label>
                         <input id="inPriceMod" type="number" maxlength="12" data-length="12" required>
@@ -104,6 +103,7 @@
     <script src="/__/firebase/6.2.0/firebase-auth.js"></script>
     <script src="/__/firebase/6.2.0/firebase-firestore.js"></script>
     <script src="/__/firebase/6.2.0/firebase-storage.js"></script>
+    <script src="/__/firebase/6.2.0/firebase-functions.js"></script>
     <script src="/__/firebase/init.js"></script>
     <script src="js/stock.js"></script>
     <script src="js/main.js"></script>

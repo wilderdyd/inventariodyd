@@ -100,7 +100,6 @@ var idMod = 0
 var btnLogout = document.getElementById("btnLogout");
 let liADD = document.getElementById("liAdd");
 // let liDelete = document.getElementById("liDelete");
-// let liModified = document.getElementById("liModified");
 let liInStock = document.getElementById("liInStock");
 let liOutStock = document.getElementById("liOutStock");
 btnLogout.addEventListener('click', logout);

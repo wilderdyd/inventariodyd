@@ -10,7 +10,6 @@ const admin = require('firebase-admin');
 // });
 admin.initializeApp();
 const APP_NAME = 'Inventario D&D';
-
 const gmailEmail = functions.config().gmail.email;
 const gmailPassword = functions.config().gmail.password;
 const mailTransport = nodemailer.createTransport({
@@ -18,17 +17,18 @@ const mailTransport = nodemailer.createTransport({
     auth: {
         user: gmailEmail,
         pass: gmailPassword
-     },
-}); 
+    },
+});
 
-    
+
+
 exports.sendWelcomeEmail = functions.auth.user().onCreate((user) => {
     const email = user.email;
     const displayName = user.displayName;
     return sendWelcomeEmail(email, displayName);
 });
 
-async function sendWelcomeEmail(email, displayName){
+async function sendWelcomeEmail(email, displayName) {
     const mailOptions = {
         from: `Inventario D&D <noreply@inventariodyd.com>`,
         to: email,
@@ -40,3 +40,16 @@ async function sendWelcomeEmail(email, displayName){
     console.log('Mensaje bienvenida enviado a :', email);
     return null;
 }
+
+exports.modifiedStock = functions.https.onCall((data) => {
+    admin.firestore().collection('stock').doc(data.idP)
+        .update({
+            name: data.nameP,
+            description: data.descP,
+            price: data.priceP,
+            amount: data.amountP
+        })
+        .catch(err => {
+            throw new functions.https.HttpsError('Error function modifiedStock', err);
+        });
+});

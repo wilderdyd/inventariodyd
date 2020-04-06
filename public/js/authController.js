@@ -1,17 +1,19 @@
 function createUserState() {
     document.getElementById("pCreate").hidden = true;
-    document.getElementById("pMessage").hidden = false;
     btnLogin.hidden = true;
+    document.getElementById("pMessage").hidden = false;
+    document.getElementById("pLogin").hidden = false;
     btnCreate.hidden = false;
     inName.hidden = false;
 }
 
 function loginUserState() {
-    document.getElementById("pCreate").hidden = false;
-    btnLogin.hidden = false;
+    document.getElementById("pMessage").hidden = true;
+    document.getElementById("pLogin").hidden = true;
     btnCreate.hidden = true;
     inName.hidden = true;
-    document.getElementById("pMessage").hidden = true;
+    document.getElementById("pCreate").hidden = false;
+    btnLogin.hidden = false;
     inName.value = "";
     inPassword.value = "";
 }
